@@ -23,7 +23,7 @@ spec:
         app.kubernetes.io/instance: devfile-sample-java-springboot-basic-uexq
     spec:
       containers:
-      - image: quay.io/redhat-appstudio/user-workload:mreid1-tenant-devfile-sample-java-springboot-basic-uexq
+      - image: quay.io/redhat-appstudio/user-workload@sha256:6c8be54b74e5af82cfd8f402ced5433f1c1c629450a222611e35c0a2fe49cbb9
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
@@ -40,6 +40,9 @@ spec:
           tcpSocket:
             port: 8081
         resources:
+          limits:
+            cpu: "1"
+            memory: 512Mi
           requests:
             cpu: 10m
             memory: 180Mi
